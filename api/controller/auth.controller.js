@@ -191,7 +191,7 @@ export const checkAuth = async (req, res) => {
             return res.status(400).json({ success: false, message: "Identification error"});
         }
 
-        return res.status(200).json({success: true, message: "Correct Authentication", user:{
+        return res.status(200).json({success: true, message: "Correct Authentication", user: {
             ...user._doc,
             password: undefined
         }});
