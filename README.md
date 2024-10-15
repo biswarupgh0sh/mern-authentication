@@ -1,12 +1,12 @@
 # About this MERN-Authentication project
 
 ## Implementation
-#### 📤 Implementing Signup
-#### 🔑 Implementing Login
-#### 📧 Implementing Email Verification
+#### 📤 Implementation of Signup
+#### 🔑 Implementation of Login
+#### 📧 Implementation of Email Verification
 #### 🔒 Protecting Routes
 #### 🏠 Dashboard Page
-#### 🔄 Implementing Forgot Password
+#### 🔄 Implementation of Forgot Password
 #### 🔐 Signup Endpoint
 #### 🔍 Verify Email Endpoint
 #### 📄 Building a Welcome Email Template
@@ -14,6 +14,7 @@
 #### 🔑 Login Endpoint
 #### 🔄 Forgot Password Endpoint
 #### 🔁 Reset Password Endpoint
+#### ✅ Implementation of Reset Password
 #### 📧 Sending Verify Account Email
 #### ✔️ Check Auth Endpoint
 
