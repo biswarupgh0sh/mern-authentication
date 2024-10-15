@@ -1,21 +1,21 @@
 # About this MERN-Authentication project
 
 ## Implementation
-### 📤 Implementing Signup
-### 🔑 Implementing Login
-### 📧 Implementing Email Verification
-### 🔒 Protecting Routes
-### 🏠 Dashboard Page
-### 🔄 Implementing Forgot Password
-### 🔐 Signup Endpoint
-### 🔍 Verify Email Endpoint
-### 📄 Building a Welcome Email Template
-### 🚪 Logout Endpoint
-### 🔑 Login Endpoint
-### 🔄 Forgot Password Endpoint
-### 🔁 Reset Password Endpoint
-### 📧 Sending Verify Account Email
-### ✔️ Check Auth Endpoint
+#### 📤 Implementing Signup
+#### 🔑 Implementing Login
+#### 📧 Implementing Email Verification
+#### 🔒 Protecting Routes
+#### 🏠 Dashboard Page
+#### 🔄 Implementing Forgot Password
+#### 🔐 Signup Endpoint
+#### 🔍 Verify Email Endpoint
+#### 📄 Building a Welcome Email Template
+#### 🚪 Logout Endpoint
+#### 🔑 Login Endpoint
+#### 🔄 Forgot Password Endpoint
+#### 🔁 Reset Password Endpoint
+#### 📧 Sending Verify Account Email
+#### ✔️ Check Auth Endpoint
 
 ## Setup .env
 ```bash
