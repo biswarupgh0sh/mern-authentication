@@ -76,8 +76,7 @@ export const signin = async (req, res) => {
             password: undefined
         }});
     } catch (error) {
-        console.log("Error while logging in");
-        return res.status(400).json({ success: false, message: error.message });
+        res.status(400).json({ success: false, message: error.message });
     }
 }
 export const logout = async (req, res) => {
@@ -93,8 +92,6 @@ export const verifyEmail = async (req, res) =>{
             verificationToken: code,
             verificationTokenExpiresAt: { $gt : Date.now() }
         });
-
-        console.log("user", user);
         
         if(!user){
             return res.status(400).json({success: false, message: "Invalid or expired Code"});
@@ -106,9 +103,7 @@ export const verifyEmail = async (req, res) =>{
 
         await user.save();
         
-
         await sendWelcomeEmail(user.email, user.name);
-        console.log("email is sent after verification");
         
 
         return res.status(200).json({
@@ -120,8 +115,7 @@ export const verifyEmail = async (req, res) =>{
             }
         });
     } catch (error) {
-        console.log("Error in verifying email", error);
-        return await res.status(500).json({success: false, message: error.message});
+        res.status(500).json({success: false, message: error.message});
     }
 }
 
@@ -149,7 +143,6 @@ export const forgotPassword = async (req, res)=>{
             password: undefined
         }})
     } catch (error) {
-        console.log("Error processing forgot password", error);
         throw new Error("Error handing forgot password", error.message);
     }
 }
@@ -196,7 +189,6 @@ export const checkAuth = async (req, res) => {
             password: undefined
         }});
     } catch (error) {
-        console.log("Error in auth", error);
         throw new Error("Auth error", error.message);
     }
 }
