@@ -23,11 +23,6 @@ app.use(
   })
 );
 app.use(
-  helmet.referrerPolicy({
-    policy: "no-referrer",
-  })
-);
-app.use(
   helmet({
     noSniff: false,
   })
