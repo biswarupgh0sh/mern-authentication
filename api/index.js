@@ -5,27 +5,50 @@ import "dotenv/config";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import path from "path";
+import helmet from "helmet";
 
 const app = express();
 const port = process.env.PORT || 5000;
 const __dirname = path.resolve();
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: "http://localhost:5173", credentials: true}));
-
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(helmet());
+app.use(
+  helmet.hsts({
+    // 60 days
+    maxAge: 86400,
+    // removing the "includeSubDomains" option
+    includeSubDomains: false,
+  })
+);
+app.use(
+  helmet.referrerPolicy({
+    policy: "no-referrer",
+  })
+);
+app.use(
+  helmet({
+    noSniff: false,
+  })
+);
+app.use(
+  helmet({
+    frameguard: false,
+  })
+);
 
 app.use("/api/auth", authRoutes);
 
-if(process.env.NODE_ENV=="production"){
-    app.use(express.static(path.join(__dirname, "/client/dist")));
+if (process.env.NODE_ENV == "production") {
+  app.use(express.static(path.join(__dirname, "/client/dist")));
 
-    app.get("*", (req, res)=> {
-        res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
-    })
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
+  });
 }
 
-
-app.listen(port, ()=>{
-    connectDb();
-    console.log(`Connected to ${port}`);
+app.listen(port, () => {
+  connectDb();
+  console.log(`Connected to ${port}`);
 });
