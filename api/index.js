@@ -13,12 +13,11 @@ const __dirname = path.resolve();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+
 app.use(helmet());
 app.use(
   helmet.hsts({
-    // 60 days
     maxAge: 86400,
-    // removing the "includeSubDomains" option
     includeSubDomains: false,
   })
 );
@@ -32,6 +31,7 @@ app.use(
     frameguard: false,
   })
 );
+app.use(helmet.xssFilter())
 
 app.use("/api/auth", authRoutes);
 
