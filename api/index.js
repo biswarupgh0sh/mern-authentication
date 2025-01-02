@@ -14,6 +14,12 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
+const csp_policy = {
+  defaultSrc: ["'self'"],
+  formAction: ["'self'"],
+  baseUri: ["'self'"]
+}
+
 app.use(helmet());
 app.use(
   helmet.hsts({
@@ -31,7 +37,14 @@ app.use(
     frameguard: false,
   })
 );
-app.use(helmet.xssFilter())
+app.use(helmet.xssFilter());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: csp_policy
+  })
+);
+
+
 
 app.use("/api/auth", authRoutes);
 
